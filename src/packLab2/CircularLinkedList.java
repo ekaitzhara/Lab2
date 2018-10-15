@@ -2,7 +2,7 @@ package packLab2;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
+//he modificado algo
 public class CircularLinkedList<T> implements ListADT<T> {
 
 	// Atributuak
