@@ -8,7 +8,7 @@ public class OrderedCircularLinkedList<T> extends CircularLinkedList<T> implemen
 	}
 	
 	public void adabegiakInprimatu() {
-		
+		this.adabegiakInprimatu();
 	}
 
 }

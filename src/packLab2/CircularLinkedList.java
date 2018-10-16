@@ -2,13 +2,12 @@ package packLab2;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-hola ke ase pn
-eyy
-cuentame lo que ase
+
 public class CircularLinkedList<T> implements ListADT<T> {
 
 	// Atributuak
 	protected Node<T> last; // azkenaren erreferentzia
+//	private Node<T> current; //lantzen ari garen nodoa
 	protected String deskr;  // deskribapena
 	protected int count;
 
@@ -31,6 +30,17 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	// Aurrebaldintza: zerrenda ez da hutsa
 		// KODEA OSATU ETA KOSTUA KALKULATU
 		T emaitza=null;
+		if (this.isEmpty()==false) {
+			if (last.next==last) {
+				emaitza=last.data;
+				count = 0;
+				last=null;
+			}else {
+				emaitza=last.next.data;
+				last.next=last.next.next;
+				count --;
+			}
+		}
 		
 		return emaitza;
 	}
@@ -40,7 +50,21 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	// Aurrebaldintza: zerrenda ez da hutsa
 		// KODEA OSATU ETA KOSTUA KALKULATU
 		T emaitza=null;
-		
+		if (this.isEmpty()==false) {
+			if (last.next==last) {
+				emaitza=last.data;
+				count = 0;
+				last=null;
+			}else {
+				Node<T> current=last.next;
+				while (current.next!=last) {
+					current=current.next;
+				}
+				emaitza=current.next.data;
+				current.next=last.next;
+				count --;
+			}
+		}
 		return emaitza;
     }
 
@@ -87,10 +111,10 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	}
 
 	public boolean isEmpty() 
-	{ return last == null;};
+	{ return last == null;}
 	
 	public int size() 
-	{ return count;};
+	{ return count;}
 	
 	/** Return an iterator to the stack that iterates through the items . */ 
 	   public Iterator<T> iterator() { return new ListIterator(); } 
@@ -131,5 +155,6 @@ public class CircularLinkedList<T> implements ListADT<T> {
 			}	
 			return "SimpleLinkedList " + result + "]";
 		}
+		
 
 }
