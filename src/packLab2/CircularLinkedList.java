@@ -73,11 +73,29 @@ public class CircularLinkedList<T> implements ListADT<T> {
 	// Aurrebaldintza: zerrenda ez da hutsa
 	// Balio hori listan baldin badago, bere lehen agerpena ezabatuko dut. Kendutako objektuaren erreferentzia 
         //  bueltatuko du (null ez baldin badago)
-
 	
 		// KODEA OSATU ETA KOSTUA KALKULATU
 		T emaitza=null;
-		
+		boolean aurkituta=false;
+		Node<T> current=last.next;
+		if (this.isEmpty()==false) {
+			if (last.next==last && last.data==elem) {
+				emaitza=elem;
+				last=null;
+			} else {
+				while (!aurkituta || current!=last) {
+					if (current.next.data==elem) {
+						if (current.next==last) {
+							current.next=last.next;
+						} else if (current.next==last.next) {
+							last.next=last.next.next;
+						}
+						emaitza=elem;
+						aurkituta=true;
+					}
+				}
+			}
+		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO
 		return emaitza;
         };
 
@@ -97,16 +115,29 @@ public class CircularLinkedList<T> implements ListADT<T> {
 
 	public boolean contains(T elem) {
 	// Egiazkoa bueltatuko du aurkituz gero, eta false bestela
-		return true;
-	
-		   }
+		return (this.find(elem)!=null);
+	}
 
 	public T find(T elem) {
 	// Elementua bueltatuko du aurkituz gero, eta null bestela
-
+		
 		// KODEA OSATU ETA KOSTUA KALKULATU
 		T emaitza=null;
-		
+		if (this.isEmpty()==false) {
+			if (elem==last.data) {
+				emaitza=elem;
+			} else {
+				Node<T> current = last.next;
+				boolean aurkitua=false;
+				while (!aurkitua || current!=last) {
+					if (current.data==elem) {
+						emaitza=elem;
+						aurkitua=true;
+					}
+					current=current.next;
+				}
+			}
+		}
 		return emaitza;
 	}
 
