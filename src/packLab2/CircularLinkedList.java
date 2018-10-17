@@ -93,9 +93,10 @@ public class CircularLinkedList<T> implements ListADT<T> {
 						emaitza=elem;
 						aurkituta=true;
 					}
+					current=current.next;
 				}
 			}
-		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO
+		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO (mirar al borrar el primero y el ultimo)
 		return emaitza;
         };
 
