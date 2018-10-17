@@ -96,7 +96,7 @@ public class CircularLinkedList<T> implements ListADT<T> {
 					current=current.next;
 				}
 			}
-		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO (mirar al borrar el primero y el ultimo)
+		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO
 		return emaitza;
         };
 
