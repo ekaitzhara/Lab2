@@ -97,7 +97,6 @@ public class CircularLinkedList<T> implements ListADT<T> {
 				}
 			}
 		}			//EKAITZ: TENGO QUE REVISAR EL CODIGO
-		//para ander (github)
 		return emaitza;
         };
 
